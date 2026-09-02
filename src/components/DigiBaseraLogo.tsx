@@ -1,4 +1,5 @@
 import React from 'react';
+import monogramImg from '../assets/digibasera-monogram.png';
 
 interface DigiBaseraLogoProps {
   variant?: 'light' | 'dark' | 'full-gold';
