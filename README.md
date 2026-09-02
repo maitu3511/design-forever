@@ -1,24 +1,28 @@
-# Design Forever
+DigiBasera Logo Fix — What's in this zip
+=========================================
 
-is website me koi bhi changes nahi aane chahiye design bhi sam hi rehni chahiye
+Sirf 2 files change hue hain (poori repo nahi):
 
-This project was built with [Lovable](https://lovable.dev).
+1. src/assets/digibasera-logo-full.png
+   -> Aapka naya official logo (transparent background, optimized for web).
 
-## Build with Lovable
+2. src/components/DigiBaseraLogo.tsx
+   -> Ab ye component seedha naya full logo image render karta hai
+      (monogram + "Digi Basera" text + tagline sab ek hi image mein
+      baked-in hain), isliye Header aur Footer dono jagah automatically
+      naya logo aa jayega — kyunki dono jagah yahi component use hota hai.
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/ee4624e9-865f-4489-8a7f-2e13ce98e5e4).
+Kaise apply karein
+-------------------
+1. Apne repo ko clone/pull karein.
+2. Is zip ke "src" folder ko apni repo ke "src" folder ke upar paste kar dein
+   (overwrite karne do jab pucha jaye).
+3. Purani file "src/assets/digibasera-monogram.png" ab use nahi ho rahi,
+   use delete kar sakte hain (optional, code error nahi dega agar rehne bhi de).
+4. Commit + push karein:
+     git add .
+     git commit -m "Update DigiBasera logo in header and footer"
+     git push
 
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+Verified: `npm install` + `npx vite build` successfully pass with these changes.
 
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
-npm run dev
-```
