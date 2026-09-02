@@ -609,6 +609,18 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
           </button>
 
           <button
+            onClick={() => setActiveTab('careers')}
+            className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all whitespace-nowrap ${
+              activeTab === 'careers'
+                ? 'bg-[#111111] text-white border border-[#D4AF37] shadow-xs'
+                : 'bg-white text-[#555555] hover:bg-[#FAF9F5] border border-[#E8E1D0]'
+            }`}
+          >
+            <Briefcase className="w-4 h-4 text-[#D4AF37]" />
+            <span>Careers & Jobs</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('reviews')}
             className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all whitespace-nowrap ${
               activeTab === 'reviews'
