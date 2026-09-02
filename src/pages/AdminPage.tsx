@@ -60,6 +60,7 @@ import { AdminPortfolioManager } from '../components/admin/AdminPortfolioManager
 import { AdminAnimationSettings } from '../components/admin/AdminAnimationSettings';
 import { AdminServicesManager } from '../components/admin/AdminServicesManager';
 import { AdminReviewsManager } from '../components/admin/AdminReviewsManager';
+import { AdminCareersManager } from '../components/admin/AdminCareersManager';
 
 interface AdminPageProps {
   onNavigate: (page: PageType) => void;
@@ -88,7 +89,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
 
   // Navigation & Filter State in Admin
   const [activeTab, setActiveTab] = useState<
-    'main-services' | 'portfolio' | 'reviews' | 'services' | 'packages' | 'quick-table' | 'categories' | 'animations' | 'security'
+    'main-services' | 'portfolio' | 'careers' | 'reviews' | 'services' | 'packages' | 'quick-table' | 'categories' | 'animations' | 'security'
   >('main-services');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('all');
@@ -609,6 +610,18 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
           </button>
 
           <button
+            onClick={() => setActiveTab('careers')}
+            className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all whitespace-nowrap ${
+              activeTab === 'careers'
+                ? 'bg-[#111111] text-white border border-[#D4AF37] shadow-xs'
+                : 'bg-white text-[#555555] hover:bg-[#FAF9F5] border border-[#E8E1D0]'
+            }`}
+          >
+            <Briefcase className="w-4 h-4 text-[#D4AF37]" />
+            <span>Careers & Jobs</span>
+          </button>
+
+          <button
             onClick={() => setActiveTab('reviews')}
             className={`px-4 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all whitespace-nowrap ${
               activeTab === 'reviews'
@@ -713,6 +726,12 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
         {/* ===================================================================== */}
         {/* TAB: REVIEWS & TESTIMONIALS MANAGEMENT */}
         {/* ===================================================================== */}
+        {activeTab === 'careers' && (
+          <div className="animate-in fade-in duration-200">
+            <AdminCareersManager showToast={showToast} />
+          </div>
+        )}
+
         {activeTab === 'reviews' && (
           <div className="animate-in fade-in duration-200">
             <AdminReviewsManager showToast={showToast} onUpdate={loadData} />
