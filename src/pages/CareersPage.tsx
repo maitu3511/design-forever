@@ -15,7 +15,7 @@ import {
   GraduationCap,
   Send
 } from 'lucide-react';
-import { CAREER_OPENINGS } from '../data/companyData';
+import { loadStoredCareerOpenings } from '../data/careersData';
 import { AGENCY_CONFIG } from '../data/agencyData';
 import { WhatsAppIcon } from '../components/WhatsAppIcon';
 import { getWhatsAppUrl } from '../utils/whatsapp';
@@ -30,6 +30,11 @@ export const CareersPage: React.FC<CareersPageProps> = ({
   onNavigate,
 }) => {
   const [selectedDepartment, setSelectedDepartment] = useState<string>('All');
+  const [careerOpenings, setCareerOpenings] = useState<CareerOpening[]>([]);
+
+  useEffect(() => {
+    setCareerOpenings(loadStoredCareerOpenings());
+  }, []);
   const [activeJob, setActiveJob] = useState<CareerOpening | null>(null);
   const [isApplyModalOpen, setIsApplyModalOpen] = useState(false);
   const [applicantName, setApplicantName] = useState('');
@@ -42,8 +47,8 @@ export const CareersPage: React.FC<CareersPageProps> = ({
   const departments = ['All', 'Marketing', 'Tech & Web', 'Design & Creative', 'Training & Operations'];
 
   const filteredJobs = selectedDepartment === 'All'
-    ? CAREER_OPENINGS
-    : CAREER_OPENINGS.filter((j) => j.department === selectedDepartment);
+    ? careerOpenings
+    : careerOpenings.filter((j) => j.department === selectedDepartment);
 
   const handleApplyClick = (job: CareerOpening) => {
     setActiveJob(job);
@@ -196,7 +201,7 @@ export const CareersPage: React.FC<CareersPageProps> = ({
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#9A7B16] block mb-1">
-              Current Openings ({CAREER_OPENINGS.length})
+              Current Openings ({careerOpenings.length})
             </span>
             <h2 className="text-3xl font-bold text-[#111111] font-heading">
               Explore Available Positions

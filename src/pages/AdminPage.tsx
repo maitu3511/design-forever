@@ -60,6 +60,7 @@ import { AdminPortfolioManager } from '../components/admin/AdminPortfolioManager
 import { AdminAnimationSettings } from '../components/admin/AdminAnimationSettings';
 import { AdminServicesManager } from '../components/admin/AdminServicesManager';
 import { AdminReviewsManager } from '../components/admin/AdminReviewsManager';
+import { AdminCareersManager } from '../components/admin/AdminCareersManager';
 
 interface AdminPageProps {
   onNavigate: (page: PageType) => void;
@@ -88,7 +89,7 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
 
   // Navigation & Filter State in Admin
   const [activeTab, setActiveTab] = useState<
-    'main-services' | 'portfolio' | 'reviews' | 'services' | 'packages' | 'quick-table' | 'categories' | 'animations' | 'security'
+    'main-services' | 'portfolio' | 'careers' | 'reviews' | 'services' | 'packages' | 'quick-table' | 'categories' | 'animations' | 'security'
   >('main-services');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategoryFilter, setSelectedCategoryFilter] = useState('all');
@@ -725,6 +726,12 @@ export const AdminPage: React.FC<AdminPageProps> = ({ onNavigate }) => {
         {/* ===================================================================== */}
         {/* TAB: REVIEWS & TESTIMONIALS MANAGEMENT */}
         {/* ===================================================================== */}
+        {activeTab === 'careers' && (
+          <div className="animate-in fade-in duration-200">
+            <AdminCareersManager showToast={showToast} />
+          </div>
+        )}
+
         {activeTab === 'reviews' && (
           <div className="animate-in fade-in duration-200">
             <AdminReviewsManager showToast={showToast} onUpdate={loadData} />
