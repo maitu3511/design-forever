@@ -18,10 +18,10 @@ export const DigiBaseraLogo: React.FC<DigiBaseraLogoProps> = ({
 }) => {
   // Height and scale profiles
   const sizeMap = {
-    sm: { markSize: 34, titleSize: 'text-base', subSize: 'text-[8px]', gap: 'gap-2.5' },
-    md: { markSize: 42, titleSize: 'text-xl', subSize: 'text-[9px]', gap: 'gap-3' },
-    lg: { markSize: 56, titleSize: 'text-2xl', subSize: 'text-[10px]', gap: 'gap-3.5' },
-    xl: { markSize: 72, titleSize: 'text-3xl', subSize: 'text-xs', gap: 'gap-4' },
+    sm: { markSize: 40, titleSize: 'text-base', subSize: 'text-[8px]', gap: 'gap-2.5' },
+    md: { markSize: 50, titleSize: 'text-xl', subSize: 'text-[9px]', gap: 'gap-3' },
+    lg: { markSize: 66, titleSize: 'text-2xl', subSize: 'text-[10px]', gap: 'gap-3.5' },
+    xl: { markSize: 84, titleSize: 'text-3xl', subSize: 'text-xs', gap: 'gap-4' },
   };
 
   const currentSize = sizeMap[size];
